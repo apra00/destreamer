@@ -1,5 +1,6 @@
 # BGE specific login with password autofill
-This fork can fill in the password in the system of the Budapesti Gazdasági Egyetem (BGE)
+This fork can fill in the password in the system of the Budapesti Gazdasági Egyetem (BGE).
+Use this feature with username (-u) to save time.
 ## Usage
 ```
 --bgepasswd "YourPasswd"
