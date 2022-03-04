@@ -1,3 +1,14 @@
+# BGE specific login with password autofill
+This fork can fill in the password in the system of the Budapesti Gazdasági Egyetem (BGE)
+## Usage
+```
+--bgepasswd "YourPasswd"
+```
+or
+```
+--bp "YourPasswd"
+```
+
 <a href="https://github.com/snobu/destreamer/actions">
   <img src="https://github.com/snobu/destreamer/workflows/Node%20CI/badge.svg" alt="CI build status" />
 </a>
