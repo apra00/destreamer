@@ -8,6 +8,10 @@ or
 ```
 --bp "YourPasswd"
 ```
+Example:
+```
+./destreamer.sh -u studentID@unidomain.com --bp "YourPasswd" -i "https://web.microsoftstream.com/video/videoID"
+```
 
 <a href="https://github.com/snobu/destreamer/actions">
   <img src="https://github.com/snobu/destreamer/workflows/Node%20CI/badge.svg" alt="CI build status" />
