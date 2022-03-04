@@ -100,7 +100,7 @@ export const argv: any = yargs.options({
     format: {
         describe: 'Output container format (mkv, mp4, mov, anything that FFmpeg supports).',
         type: 'string',
-        default: 'mkv',
+        default: 'mp4',
         demandOption: false
     },
     skip: {
@@ -108,6 +108,11 @@ export const argv: any = yargs.options({
         type: 'boolean',
         default: false,
         demandOption: false
+    },
+    bgepasswd: {
+		alias: 'bp',
+        describe: 'BGE jelszó',
+        type: 'string',
     }
 })
 .wrap(120)

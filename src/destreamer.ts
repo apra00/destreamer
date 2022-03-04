@@ -44,7 +44,7 @@ async function init(): Promise<void> {
 }
 
 
-async function DoInteractiveLogin(url: string, username?: string): Promise<Session> {
+async function DoInteractiveLogin(url: string, bgepasswd: string, username?: string): Promise<Session> {
 
     logger.info('Launching headless Chrome to perform the OpenID Connect dance...');
 
@@ -68,6 +68,14 @@ async function DoInteractiveLogin(url: string, username?: string): Promise<Sessi
             await page.waitForSelector('input[type="email"]', {timeout: 3000});
             await page.keyboard.type(username);
             await page.click('input[type="submit"]');
+			await page.waitFor(1000);
+			await page.waitForSelector('input[type="password"]');
+			await page.type('input[type="password"]', bgepasswd);
+			await page.waitFor(200);
+			await page.click('span[id="submitButton"]');
+			await page.waitFor(200);
+			await page.waitForSelector('input[type="submit"]');
+			await page.click('input[type="submit"]');
         }
         else {
             /* If a username was not provided we let the user take actions that
@@ -273,7 +281,7 @@ async function main(): Promise<void> {
 
     let session: Session;
     // eslint-disable-next-line prefer-const
-    session = tokenCache.Read() ?? await DoInteractiveLogin('https://web.microsoftstream.com/', argv.username);
+    session = tokenCache.Read() ?? await DoInteractiveLogin('https://web.microsoftstream.com/', argv.bgepasswd, argv.username);
 
     logger.verbose('Session and API info \n' +
         '\t API Gateway URL: '.cyan + session.ApiGatewayUri + '\n' +
